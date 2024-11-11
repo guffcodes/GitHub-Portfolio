@@ -1,0 +1,22 @@
+# Email domain counter
+# Create empty dictionary for emails
+email_domains = {}
+
+# Take input from the user until they enter "done"
+while True:
+    # Take input from the user
+    user_input = input("Enter an email (or 'done' to finish): ")
+    if user_input.lower() == 'done': # If user enters "done", break out of the loop
+        break
+    # Find email addresses in the input string
+    words = user_input.split()
+    for word in words:
+      if "@" in word:
+        email_parts = word.split('@')
+        domain = email_parts[-1]
+
+    # Count number of times each domain appears in the input string
+        email_domains[domain] = email_domains.get(domain, 0) + 1
+
+# Print statement for email count
+print(email_domains)
