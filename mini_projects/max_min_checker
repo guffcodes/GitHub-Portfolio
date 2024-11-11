@@ -1,0 +1,17 @@
+# Random number input program : Check for max and min
+# Create a variable that will store user input into a list
+# Create a while loop that will run while the user input is not "done"
+numlist = list()
+while True:
+    num = input('Enter a number: ')
+    if num == 'done':
+        break
+    try: # convert string to float and add to numlist
+        value = float(num)
+        numlist.append(value)
+    except: # if input is not a number, print error message
+        print("Please enter a real number.")
+        continue
+
+# Print statement to display the minimum and maximum values
+print("minimum: ", min(numlist), ", maximum: ", max(numlist))
