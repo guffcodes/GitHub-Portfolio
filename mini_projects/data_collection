@@ -1,0 +1,41 @@
+# Data Collection
+# Import modules
+import requests
+import json
+
+# Define a function to get the titles of the articles from the New York Times API
+def fetch_titles(year, month, api_key):
+    url = f"https://api.nytimes.com/svc/archive/v1/{year}/{month}.json?api-key={api_key}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        titles = [doc['headline']['main'] for doc in data['response']['docs']]
+        return titles
+    else:
+        print("Failed to fetch data.")
+        return []
+
+# Define a function for cleaning (remove whitespaces etc.) and for saving the titles to a file
+def clean_title(title):
+    return title.strip()
+
+def save_titles_to_file(titles, year):
+    filename = f"titles_{year}.txt"
+    with open(filename, 'w') as file:
+        for title in titles:
+            cleaned_title = clean_title(title)
+            file.write(cleaned_title + '\n')
+
+# Define a main function
+def main():
+    api_key = "wNCLPNojLjMN2ZQmae58JHq8PWUtEaF5"
+
+    # Fetch titles for October 1918
+    titles_1918 = fetch_titles(1918, 10, api_key)
+    save_titles_to_file(titles_1918, 1918)
+
+    # Fetch titles for October 2020
+    titles_2020 = fetch_titles(2020, 10, api_key)
+    save_titles_to_file(titles_2020, 2020)
+
+main()
