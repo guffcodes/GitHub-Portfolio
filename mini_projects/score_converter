@@ -1,0 +1,23 @@
+# Score Converter: Return score (decimal) as a string
+# User-input: Tell user to enter a score between 0 and 1
+score = input("(Between 0 and 1) - Enter score: ")
+
+# Define a function that produces a letter grade based on the score
+# If user enters anything other than a number between 0 and 1, display error message
+def computegrade (score):
+  score = float(score)
+  if score >= 0.9:
+    return ("A")
+  elif score >= 0.8:
+    return ("B")
+  elif score >= 0.7:
+    return ("C")
+  elif score >= 0.6:
+    return ("D")
+  elif score < 0.6:
+    return ("F")
+  else:
+    return ("Bad score")
+
+# Print statement and call return values from computegrade function
+print (computegrade (score))
