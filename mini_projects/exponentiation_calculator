@@ -1,0 +1,17 @@
+# Write a function power_int_list that accepts an integer list as the first argument and an integer as the second argument. Have the function return a new list that raises each element to the power of what was entered in the second argument.
+
+
+# Define a function power_int_list that accepts an integer list as the first argument and an integer as the second argument.
+def power_int_list(int_list, power):
+  result = []
+  for num in int_list: 
+      result.append(num ** power)
+  return result
+
+inp_list = input ("Enter a list of integers separated by spaces: ").split() # Convert input string into a list of integer
+int_list = [int(num) for num in inp_list] # Convert input string to integers
+power = int (input ("Enter an integer: ")) # Ask user for integer (power) and convert string to integer
+
+# Call the function power_int_list and print the result
+result_pow = power_int_list(int_list, power)
+print ("result_pow would be equal to ", result_pow)
