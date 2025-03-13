@@ -1,9 +1,0 @@
-# Temperature Conversion A1: Celsius to Fahrenheit
-# Assign input to celsius variable
-c_temp = input ("Enter temperature in Celsius: ")
-
-# Convert celsius to fahrenheit
-f_temp = int(c_temp) * 9 / 5 + 32
-
-# Print statement
-print ("The temperature in fahrenheit is " , (f_temp))
